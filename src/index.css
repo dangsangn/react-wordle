@@ -11,3 +11,166 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+.grid {
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  gap:12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.row .letter {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  font-size: 25px;
+  border: 2px solid #555;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.letter.grey {
+  --background: #a1a1a1;
+  --border-color: #a1a1a1;
+  animation: flip ease-in-out 0.5s forwards; 
+}
+
+.letter.green {
+  --background: #5ac85a;
+  --border-color: #5ac85a;
+  animation: flip ease-in-out 0.6s forwards;
+}
+
+.letter.yellow {
+  --background: #e2cc68;
+  --border-color: #e2cc68;
+  animation: flip ease-in-out 0.5s forwards;
+}
+
+.grid .letter:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.grid .letter:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.grid .letter:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.grid .letter:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.grid .letter.filled {
+  animation: bound 0.5s ease-in-out forwards;
+}
+
+@keyframes flip {
+  0% {
+    background: #fff;
+    border-color: #333;
+    transform: rotateX(0deg);
+  }
+
+  45% {
+    background: #fff;
+    border-color: #333;
+    transform: rotateX(90deg);
+  }
+
+  55% {
+    background: var(--background);
+    border-color: var(--border-color);
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    background: var(--background);
+    border-color: var(--border-color);
+    color: #fff;
+    transform: rotateX(0deg)
+  }
+}
+
+@keyframes bound {
+  0% {
+    transform: scale(1);
+    border-color: #ddd;
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+    border-color: #333;
+  }
+}
+
+.key-pad {
+  width: 500px;
+  margin: 40px auto;
+}
+
+.key-pad .key {
+  display:inline-block;
+  width: 40px;
+  height: 60px;
+  border-radius: 4px;
+  background: #eee;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  margin: 0 12px 12px 0;
+}
+
+.key-pad .green {
+  background: #5ac85a;
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+}
+
+.key-pad .yellow {
+  background: #e2cc68;
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+}
+
+.key-pad .grey {
+  background: #a1a1a1;
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255, 0.4);
+}
+
+.modal > div {
+  margin: 10% auto;
+  padding: 40px;
+  max-width: 400px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+}
